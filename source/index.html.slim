@@ -1,0 +1,28 @@
+header.intro-header style="background-image: url('images/home-bg.jpg')"
+  .container
+    .row
+      .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+        .site-heading
+          h1
+            | Cátedras Humanas UTN
+          hr.small
+            span.subheading
+              | Blog de las materias pertenecientes a Cátedras Humanas UTN
+
+.container
+  .row
+    .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+      - data.blog.posts.each do |_, post|
+        .post-preview
+          a href="/posts/#{post.slug}.html"
+            h2.post-title
+              = post.titulo
+            - if post.key?('subtitulo') && post.subtitulo
+              h3.post-subtitle
+                = post.subtitulo
+          p.post-meta
+            | Escrito por 
+            a href="#"
+              | #{post.autor.nombre}
+            |  el #{post.fechaDePublicacion.strftime('%e/%m/%Y')}
+        hr

@@ -1,0 +1,21 @@
+header.intro-header style="background-image: url('#{post.imagenCabecera.url}')"
+  .container
+    .row
+      .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+        .post-heading
+          h1
+            = post.titulo
+          - if post.key?('subtitulo') && post.subtitulo
+            h2.subheading
+              = post.subtitulo
+          span.meta
+            | Escrito por 
+            a href="#"
+              | #{post.autor.nombre}
+            |  el #{post.fechaDePublicacion.strftime('%e/%m/%Y')}
+
+article
+  .container
+    .row
+      .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+        == Kramdown::Document.new(post.contenido).to_html

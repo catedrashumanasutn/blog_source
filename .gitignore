@@ -1,0 +1,9 @@
+.DS_Store
+**/.DS_Store
+*-space-hash
+*.lock
+/.bundle
+/build
+/.sass-cache
+/.cache
+/data

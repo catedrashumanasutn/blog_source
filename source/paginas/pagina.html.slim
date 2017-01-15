@@ -1,0 +1,14 @@
+header.intro-header style="background-image: url('#{pagina.imagenCabecera.url}')"
+  .container
+    .row
+      .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+        .page-heading
+          h1
+            = pagina.titulo
+          - if pagina.key?('subtitulo') && pagina.subtitulo
+            h2.subheading
+              = pagina.subtitulo
+.container
+  .row
+    .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+      == Kramdown::Document.new(pagina.contenido).to_html
