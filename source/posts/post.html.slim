@@ -1,8 +1,9 @@
-header.intro-header style="background-image: url('#{post.imagenCabecera.url}')"
+- estilo_fondo = !post.imagenCabecera.nil? ? "background-image: url('#{post.imagenCabecera.url}')" : ""
+header.intro-header style="#{estilo_fondo}"
   .container
     .row
       .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
-        .post-heading
+        .post-heading class="#{post.imagenCabecera.nil? ? 'black' : ''}"
           h1
             = post.titulo
           - if post.key?('subtitulo') && post.subtitulo

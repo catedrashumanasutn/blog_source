@@ -1,3 +1,5 @@
+- posts = data.blog.posts.values.sort_by { |post| post.fechaDePlubicacion}
+
 header.intro-header style="background-image: url('images/home-bg.jpg')"
   .container
     .row
@@ -12,7 +14,7 @@ header.intro-header style="background-image: url('images/home-bg.jpg')"
 .container
   .row
     .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
-      - data.blog.posts.each do |_, post|
+      - posts.reverse_each do |post|
         .post-preview
           a href="/posts/#{post.slug}.html"
             h2.post-title
